@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-12 margin-tb">
             <div class="pull-left">
                 <h2>Daftar Produk</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Tambah Produk</a>
+                <a class="btn btn-info" href="{{ route('products.create') }}"> Tambah Produk</a>
             </div>
         </div>
     </div>
