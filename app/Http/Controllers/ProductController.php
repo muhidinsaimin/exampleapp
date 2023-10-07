@@ -29,7 +29,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+        Product::create($request->all());
+        return redirect()->route('products.index')->with('success','Data berhasil ditambahkan.');
     }
 
     /**
@@ -61,6 +66,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index')
+                        ->with('success','Product deleted successfully');
     }
 }
