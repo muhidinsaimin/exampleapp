@@ -50,7 +50,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -58,7 +58,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name'   => 'required',
+            'detail'  => 'required',
+        ]);
+        $product->update($request->all());
+
+        return redirect()->route('products.index')->with('success','Data Berhasil diupdate');
     }
 
     /**
